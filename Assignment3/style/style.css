@@ -1,0 +1,17 @@
+.white{
+    background-color:aliceblue;
+    color:          black;
+}
+
+.topMargin{
+    margin-top:     25px;
+    
+}
+
+li{
+   list-style-type: none; 
+}
+
+#c_password_out{
+    display:        none;
+}
