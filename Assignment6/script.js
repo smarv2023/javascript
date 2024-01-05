@@ -47,4 +47,5 @@ clickBox.addEventListener("click", function() {
     var getColor = getRandomColor();
     clickBox.style.backgroundColor = getColor;
     document.getElementById("color").innerHTML = getColor;
+    document.getElementById("color").style.color = getColor;
 });
