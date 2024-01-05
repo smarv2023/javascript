@@ -42,8 +42,8 @@ function getRandomColor() {
 
 const clickBox = document.getElementById("box");
 
-// Event listener with on click function to change color
-clickBox.addEventListener("click", function() {
+// Event handler with onclick function to change color
+clickBox.onclick = (function() {
     var getColor = getRandomColor();
     clickBox.style.backgroundColor = getColor;
     document.getElementById("color").innerHTML = getColor;
