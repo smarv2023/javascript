@@ -44,9 +44,11 @@ function checkInput(textId, textValue){
   if(!textValue) {
       document.getElementById(textId.concat("_error")).innerHTML = "Please fill up the " + textId;
       document.getElementById(textId.concat("_out")).innerHTML = textId + ": missing";
+      document.getElementById(textId.concat("_out")).className = "text-danger";
   } else {
       document.getElementById(textId.concat("_error")).innerHTML = "";
       document.getElementById(textId.concat("_out")).innerHTML = textId + ": " + textValue;
+      document.getElementById(textId.concat("_out")).className = "text-success";
   }
 }
 
@@ -58,8 +60,9 @@ function validateUsername(username){
   is_name_valid = usernameRegex.test(usernameValue);
   if(usernameValue != ""){
     if(!is_name_valid) {
-      document.getElementById(usernameId.concat("_out")).innerHTML = usernameId + ": " + "'" + usernameValue + "'" + " -Invalid username";
       document.getElementById(usernameId.concat("_error")).innerHTML = "Invalid " + usernameId;
+      document.getElementById(usernameId.concat("_out")).innerHTML = usernameId + ": " + "'" + usernameValue + "'" + " -Invalid username";
+      document.getElementById(usernameId.concat("_out")).className = "text-danger";
     }
   }
 }
@@ -72,8 +75,9 @@ function validateNames(names){
   is_name_valid = nameRegex.test(nameValue);
   if(nameValue != ""){
     if(!is_name_valid) {
-      document.getElementById(nameId.concat("_out")).innerHTML = nameId + ": " + "'" +  nameValue + "'" + " -Invalid name";
       document.getElementById(nameId.concat("_error")).innerHTML = "Invalid " + nameId;
+      document.getElementById(nameId.concat("_out")).innerHTML = nameId + ": " + "'" +  nameValue + "'" + " -Invalid name";
+      document.getElementById(nameId.concat("_out")).className ="text-danger";
     }
   }
 }
@@ -83,6 +87,7 @@ function  checkPassword(passId, passValue, c_passValue){
   if(passValue != c_passValue){
       document.getElementById(passId.concat("_error")).innerHTML = passId + " did not matched";
       document.getElementById(passId.concat("_out")).innerHTML = passId + ": " + "'" + passValue + "'" + " -did not matched";
+      document.getElementById(passId.concat("_out")).className ="text-danger";
   }
 }
 
@@ -94,8 +99,9 @@ function validateEmail(email) {
   is_valid = emailRegex.test(emailValue);
   if(emailValue != "") {
     if(!is_valid){
-      document.getElementById(emailId.concat("_out")).innerHTML = emailId + ": " + "'" + emailValue + "'" + " -Invalid email address";
       document.getElementById(emailId.concat("_error")).innerHTML = "Invalid " + emailId + " address";
+      document.getElementById(emailId.concat("_out")).innerHTML = emailId + ": " + "'" + emailValue + "'" + " -Invalid email address";
+      document.getElementById(emailId.concat("_out")).className = "text-danger";
     }
   }
 }

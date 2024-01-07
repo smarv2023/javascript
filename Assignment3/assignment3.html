@@ -4,105 +4,98 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
     <title>Assignment</title>
 
   </head>
   <body>
-    <div id ="container" class="container">
-      <div class="py-5 text-center white">
+    <div id ="container" class="container ">
+      <div class="py-5 text-center bg-light text-black">
         <p class="lead">Web application form.</p>
         <p class="lead">Javascript.</p>
       </div>
-      <h1 class ="text-center">Form</h1>
-
+      <h2 class ="text-center">Form</h2>
       <form method = "post" action ="">
-          <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" name="username">
-              <div id = "username_error" class="text-danger"></div>
-          </div>
-          <div class="row g-3">
-              <div class="col">
-                  <label for="firstname" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="firstname" name="firstname">
-                  <div id = "firstname_error" class="text-danger"></div>
-              </div>
-              <div class="col">
-                  <label for="lastname" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="lastname" name="lastname">
-                  <div id = "lastname_error" class="text-danger"></div>
-              </div>
-          </div>
-          <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
-              <div id = "password_error" class="text-danger"></div>
-          </div>
-          <div class="mb-3">
-              <label for="c_password" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="c_password" name="c_password">
-              <div id = "c_password_error" class="text-danger"></div>
-          </div>
-          <div class="mb-3">                   
-              <label for="email" class="form-label">Email address</label>
-              <input type="text" class="form-control" id="email" name="email">
-              <div id = "email_error" class="text-danger"></div>
-          </div>
-          <div class="mb-3">
-              <label for="province" class="form-label">Select A Province</label>
-              <select class="form-select" aria-label="Default select example" id ="province" name="province">
-                              <option value="">---------</option>
-                              <option value="AB">Alberta</option>
-                              <option value="BC">British Columbia</option>
-                              <option value="MB">Manitoba</option>
-                              <option value="NB">New Brunswick</option>
-                              <option value="NF">Newfoundland & Labrador</option>
-                              <option value="NT">Northwest Territories</option>
-                              <option value="NS">Nova Scotia</option>
-                              <option value="NV">Nunavut</option>
-                              <option value="ON">Ontario</option>
-                              <option value="PE">Prince Edward Island</option>
-                              <option value="QC">Quebec</option>
-                              <option value="SK">Saskatchewan</option>
-                              <option value="YK">Yukon</option>               
-                          </select>
-          </div>
-          <div id = "province_error" class="text-danger"></div>
-          <div class="mb-3">
-              <label for="agreeTerm">I agree to the Term and Conditions</label>
-              <input type="checkbox" name="agreeTerm" id="agreeTerm">
-          </div>
-          <div id = "agreeTerm_error" class="text-danger"></div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+            <div id = "username_error" class="text-danger"></div>
+        </div>
+        <div class="row g-3">
+            <div class="col">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname">
+                <div id = "firstname_error" class="text-danger"></div>
+            </div>
+            <div class="col">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname">
+                <div id = "lastname_error" class="text-danger"></div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <div id = "password_error" class="text-danger"></div>
+        </div>
+        <div class="mb-3">
+            <label for="c_password" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="c_password" name="c_password">
+            <div id = "c_password_error" class="text-danger"></div>
+        </div>
+        <div class="mb-3">                   
+            <label for="email" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="email" name="email">
+            <div id = "email_error" class="text-danger"></div>
+        </div>
+        <div class="mb-3">
+            <label for="province" class="form-label">Select A Province</label>
+            <select class="form-select" aria-label="Default select example" id ="province" name="province">
+                            <option value="">---------</option>
+                            <option value="AB">Alberta</option>
+                            <option value="BC">British Columbia</option>
+                            <option value="MB">Manitoba</option>
+                            <option value="NB">New Brunswick</option>
+                            <option value="NF">Newfoundland & Labrador</option>
+                            <option value="NT">Northwest Territories</option>
+                            <option value="NS">Nova Scotia</option>
+                            <option value="NV">Nunavut</option>
+                            <option value="ON">Ontario</option>
+                            <option value="PE">Prince Edward Island</option>
+                            <option value="QC">Quebec</option>
+                            <option value="SK">Saskatchewan</option>
+                            <option value="YK">Yukon</option>               
+                        </select>
+        </div>
+        <div id = "province_error" class="text-danger"></div>
+        <div class="mb-3">
+            <label for="agreeTerm">I agree to the Term and Conditions</label>
+            <input type="checkbox" name="agreeTerm" id="agreeTerm">
+        </div>
+        <div id = "agreeTerm_error" class="text-danger"></div>
 
-          <button type="button" class="btn btn-primary" name="submit" onclick="getInput()">Submit</button>
-      </form>
-      <hr/>
-      <h3>Output</h3>
-      <div class="topMargin">
-          <ul>
-              <li id="username_out"></li>
-              <li id="firstname_out"></li>
-              <li id="lastname_out"></li>
-              <li id="password_out"></li>
-              <li id="c_password_out"></li>
-              <li id="email_out"></li>
-              <li id="province_out"></li>
-              <li id="agreeTerm_out"></li>
-          </ul>
-      </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            <p>&copy Copyright</p>
-          </div>
-      </footer>
-        
+        <button type="button" class="btn btn-primary" name="submit" onclick="getInput()">Submit</button>
+    </form>
+    <hr/>
+    <h3>Output</h3>
+    <div class="text-start">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="username_out"></li>
+            <li class="list-group-item" id="firstname_out"></li>
+            <li class="list-group-item" id="lastname_out"></li>
+            <li class="list-group-item" id="password_out"></li>
+            <li class="list-group-item" id="c_password_out" hidden></li>
+            <li class="list-group-item" id="email_out"></li>
+            <li class="list-group-item" id="province_out"></li>
+            <li class="list-group-item" id="agreeTerm_out"></li>
+        </ul>
     </div>
-    
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            <p>&copy MS</p>
+        </div>
+    </footer>
     <!--my javascript function-->
-    <script src ="scripts/script.js"></script>
-    </script>
+    <script src ="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
