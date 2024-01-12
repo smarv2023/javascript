@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Replacement</title>
+    <style>
+        #container {
+            width:  800px;
+            height: auto;
+            margin: 50px auto;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        div {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .paragraph {
+            min-width: 650px;
+            min-height: 250px;
+            resize: none;
+        }
+
+    </style>
+    <script>
+        function replaceWords() {
+            // Get the values from the text boxes and text area
+            var searchWord = document.getElementById('searchWord').value;
+            var replaceWord = document.getElementById('replaceWord').value;
+            var paragraph = document.getElementById('paragraph').value;
+
+            // Create a regular expression for search and case-insensitive
+            //var regex = new RegExp('\\b' + searchWord + '\\b', 'gi');
+
+            // Perform the replacement using Regular Expression
+            //var replacedParagraph = paragraph.replace(regex, replaceWord);
+
+            // Direct replacement using replaceAll() case-sensitive
+            var replacedParagraph = paragraph.replaceAll(searchWord, replaceWord);
+            
+            // Check if any replacements were made
+            if (replacedParagraph !== paragraph) {
+                document.getElementById('paragraph').value = replacedParagraph;
+                document.getElementById('originDiv').innerHTML = paragraph;
+                alert('Word replaced successfully:\n' + searchWord +' replaced by: '+ replaceWord);
+            } else {
+                alert('Word not found. No changes were made.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <label for="searchWord">Search Word:</label>
+            <input type="text" id="searchWord" placeholder="Enter word to find">
+        </div>
+        <div>
+            <label for="replaceWord">Replace With:</label>
+            <input type="text" id="replaceWord" placeholder="Enter replacement word">
+        </div>
+        <div>
+            <label for="paragraph">Paragraph:</label> <br>
+            <textarea id="paragraph" placeholder="Enter paragraph to modify" class="paragraph"></textarea>
+        </div>
+        <div>
+            <button onclick="replaceWords()">Replace Words</button>
+        </div>
+        <div>
+            <textarea id="originDiv" class="paragraph" placeholder="Original paragraph before modification for comparison" disabled="disabled"></textarea>
+        </div>
+    </div>
+</body>
+</html>

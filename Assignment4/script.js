@@ -17,7 +17,8 @@ var surveyResult ={
         result.className = "text-success";
     }
 };
-/**Script for the validation 
+/**
+ * Script for the validation 
  * Write a function that will validate all fields when the submit button is clicked. 
  * Each is required and set a default value for the province that must be changed to be considered valid. 
  * The password and confirm password must match.
