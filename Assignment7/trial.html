@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="totalResults"></div>
+    <button id="deleteCookie" onClick="deleteCookie()">Delete Cookie</button>
+    <script>
+        
+        /*setCookie("green", 1, 1);
+        setCookie("red", 1, 1);
+        setCookie("blue", 1, 1);*/
+        console.log(document.cookie);
+
+        function setCookie(color, count, days) {
+            if (days) {
+                var expires = '';
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = '; expires=' + date.toUTCString();
+            }
+            document.cookie = color + '=' + count + expires + '; path=/';
+        }
+
+        function deleteCookie(){
+            document.cookie ="expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        }
+
+        function getCookie(getColor) {
+            let color = getColor + '=';
+            let cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(color) === 0) {
+                    return cookie.substring(color.length, cookie.length);
+                }
+            }
+        return null;
+        }
+
+        function checkCookie(chosenColor) {
+            var colorVotes = {};
+            var allVotes = getCookie('colorVotes');
+
+            if (allVotes) {
+                colorVotes = JSON.parse(allVotes);
+            }
+
+            colorVotes[chosenColor] = (colorVotes[chosenColor] || 0) + 1; // modify this
+
+            setCookie('colorVotes', JSON.stringify(colorVotes), 1);
+
+            displayResults(colorVotes);
+        }
+
+        function displayResults(colorVotes) {
+            var totalResults = document.getElementById('totalResults');
+            totalResults.innerHTML = colorVotes;
+
+            var sortedColors = Object.keys(colorVotes).sort(function(a,b) {
+                return colorVotes[b] - colorVotes[a];
+            });
+
+            sortedColors.forEach(function(color) {
+                var votes = colorVotes[color];
+                var percentage = (votes / Object.values(colorVotes).reduce((a, b) => a + b, 0) * 100).toFixed(2);
+                totalResults.innerHTML += color + ': ' + votes + ' votes('+ percentage + '%)<br>';
+            });
+        }
+    </script>
+</body>
+</html>

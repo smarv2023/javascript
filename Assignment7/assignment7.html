@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div id ="container" class="container">
+        <div class="py-5 text-center bg-light text-black">
+            <p class="lead">Javascript.</p>
+            </div>
+            <h1 class ="text-center">Survey</h1>
+            <hr>
+        <!-- Add a div layer above the form for error messages -->
+        
+        <div style="width:30%; height:auto; float:right;">
+            <!-- Survey Result -->
+            <h4>Survey Result</h4>
+            <div id="totalResults"></div>
+        </div>
+
+        <div style="width:60%; height:auto; margin: 0px 300px 0px 0px;">
+            <div id="usermsg" class="text-danger"></div>
+
+            <!-- Form with input fields -->
+            <form id="form" method = "post" action ="" class="fs-6">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                    <div id = "username_error" class="text-danger"></div>
+                </div>
+                <div class="row g-3">
+                    <div class="col">
+                        <label for="firstname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname">
+                        <div id = "firstname_error" class="text-danger"></div>
+                    </div>
+                    <div class="col">
+                        <label for="lastname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname">
+                        <div id = "lastname_error" class="text-danger"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <div id = "password_error" class="text-danger"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="c_password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="c_password" name="c_password">
+                    <div id = "c_password_error" class="text-danger"></div>
+                </div>
+                <div class="mb-3">                   
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                    <div id = "email_error" class="text-danger"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="province" class="form-label">Select A Province</label>
+                    <select class="form-select" aria-label="Default select example" id ="province" name="province">
+                                    <option value="">---------</option>
+                                    <option value="AB">Alberta</option>
+                                    <option value="BC">British Columbia</option>
+                                    <option value="MB">Manitoba</option>
+                                    <option value="NB">New Brunswick</option>
+                                    <option value="NF">Newfoundland & Labrador</option>
+                                    <option value="NT">Northwest Territories</option>
+                                    <option value="NS">Nova Scotia</option>
+                                    <option value="NV">Nunavut</option>
+                                    <option value="ON">Ontario</option>
+                                    <option value="PE">Prince Edward Island</option>
+                                    <option value="QC">Quebec</option>
+                                    <option value="SK">Saskatchewan</option>
+                                    <option value="YK">Yukon</option>               
+                                </select>
+                </div>
+                <div id = "province_error" class="text-danger"></div>
+                <div class="mb-3">
+                    <label for="agreeTerm">I agree to the Term and Conditions</label>
+                    <input type="checkbox" name="agreeTerm" id="agreeTerm">
+                </div>
+                <div id = "agreeTerm_error" class="text-danger"></div>
+                <hr/>
+                    <div class="mb-3">
+                        <label for="age">Age:</label>
+                        <input type="text" id="age" name="age">
+                    </div>
+                    <div class="mb-3">
+                        <h5>Color Survey</h5>
+                        <label>Choose Color:</label>
+                        <br>
+                        <input type="radio" id="red" name="color" value="red">
+                        <label for="red">Red</label>
+                        <input type="radio" id="blue" name="color" value="blue">
+                        <label for="blue">Blue</label>
+                        <input type="radio" id="green" name="color" value="green">
+                        <label for="green">Green</label>
+                        <br>
+                        <input type="radio" id="white" name="color" value="white">
+                        <label for="white">White</label>
+                        <input type="radio" id="black" name="color" value="black">
+                        <label for="black">Black</label>
+                        <input type="radio" id="gray" name="color" value="gray">
+                        <label for="gray">Gray</label>
+                    </div>
+                <!-- Call validateForm() function on form submission -->
+                <button type="button" class="btn btn-primary" name="submit" onclick="getInput();">Submit</button>
+            </form>
+
+            <!-- Make this button visible when it is a Success -->
+            <button id="backBtn" style="display:none;" class="btn btn-primary" onclick="window.location.reload();">Back</button>
+            <button id="clearCookie" onclick="deleteCookie(); window.location.reload();" class="btn btn-danger" style="display:none; margin-top: 20px;">Clear Cookie</button>
+        </div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+                <p>&copy MS</p>
+            </div>
+        </footer>
+        <script src ="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>
