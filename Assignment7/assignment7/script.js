@@ -37,8 +37,7 @@ function getInput(){
     var province = document.getElementById("province");
     var agreeTerm = document.getElementById("agreeTerm");
     var age = document.getElementById("age");
-    //var color =document.querySelector('input[name="color"]:checked');
-    var color=document.getElementById("colorSelect");
+    var color =document.querySelector('input[name="color"]:checked');
     errormsg ="";
 
 
@@ -85,8 +84,7 @@ function getInput(){
         document.getElementById("form").style.display="none";
         document.getElementById("backBtn").style.display="block";
         document.getElementById("clearCookie").style.display="block";
-        //checkCookie(document.querySelector('input[name=\'color\']:checked').value);
-        checkCookie(color.value);
+        checkCookie(document.querySelector('input[name=\'color\']:checked').value);
     }
 }
   
@@ -119,11 +117,11 @@ function validateNames(names){
     nameId = names.id;
     nameValue = names.value;
     is_name_valid = nameRegex.test(nameValue);
-    if(nameValue != ""){
-        if(!is_name_valid) {
-            document.getElementById(nameId.concat("_error")).innerHTML = "Invalid " + nameId;
-        }
-    }
+      if(nameValue != ""){
+          if(!is_name_valid) {
+              document.getElementById(nameId.concat("_error")).innerHTML = "Invalid " + nameId;
+          }
+      }
 }
 
 // Check password if matching
