@@ -6,7 +6,7 @@ class TextSearchEdit {
         this.replaceWord = replaceWord;
         this.paragraph = paragraph;
         this.highlightWords = '<mark>' + this.searchWord + '</mark>';
-        this.highlights = paragraph.replaceAll(this.searchWord, this.highlightWords);
+        this.highlights = this.paragraph.replaceAll(this.searchWord, this.highlightWords);
         this.replacedParagraph = this.paragraph.replaceAll(this.searchWord, this.replaceWord);
         this.msg = "Original paragraph before modification for comparison";
         this.userMsg = document.getElementById('userMsg');
