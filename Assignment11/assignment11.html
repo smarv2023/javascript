@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 800px;
+            height: auto;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 20px 20px 20px rgb(154, 154, 214);
+            font-family:'Times New Roman', Times, serif;
+        }
+        #header {
+            text-align: center;
+            padding-top: 75px;
+            border-radius: 20px 20px 0px 0px;
+            background-color: #0066ff;
+            color: white;
+            height: 125px;
+        }
+        #content {
+            margin: 10px;
+        }
+        #foot {
+            text-align: center;
+            padding-top: 75px;
+            border-radius: 0px 0px 20px 20px ;
+            background-color: #0066ff;
+            color: white;
+            height: 75px;
+            margin-bottom: 0px;
+        }
+        #remaining {
+            text-align: right;
+        }
+        textarea {
+            resize: none;
+        }
+        input{
+            align-items: end;
+        }
+        textarea {
+            margin: 15px;
+        }
+    </style>
+
+    
+    <script>
+        // Arrow function version
+        const limitText = (limitField, limitCount, limitNum) => {
+            var maxChar = 500;
+            limitField = document.getElementById("commentArea");
+            limitField.maxLength = maxChar;
+            limitCount = limitField.value.length;
+            limitNum = maxChar - limitField.value.length;
+
+            document.getElementById("counter").value = limitCount;
+            document.getElementById("span").innerText = limitNum;
+        }
+
+        /*
+        // Function expression version
+        const limitText = function(limitField, limitCount, limitNum) {
+            var maxChar = 500;
+            limitField = document.getElementById("commentArea");
+            limitField.maxLength = maxChar;
+            limitCount = limitField.value.length;
+            limitNum = maxChar - limitField.value.length;
+
+            document.getElementById("counter").value = limitCount;
+            document.getElementById("span").innerText = limitNum;
+        }
+        */
+
+        /*
+        // Script to count oninput
+        function limitText(limitField, limitCount, limitNum) {
+            var maxChar = 500;
+            limitField = document.getElementById("commentArea");
+            limitField.maxLength = maxChar;
+            limitCount = limitField.value.length;
+            limitNum = maxChar - limitField.value.length;
+
+            document.getElementById("counter").value = limitCount;
+            document.getElementById("span").innerText = limitNum;
+        }
+        */
+
+
+        // Show the Value of remaining onload
+        window.onload = limitText;
+        // On input this will invoke the function limitText
+        window.oninput = limitText;
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>Assignment 11</h1>
+        </div>
+        <div id="content">
+            <div>
+                <label for="comment">Enter comment</label><br>
+                <textarea id="commentArea" name="commentArea" cols="100" rows="5"></textarea>
+            </div>
+            <div>
+                You have <span id="span"></span> characters left.
+                <br>
+                <label for="charCount">Character count</label>
+                <input id="counter" type="text" disabled name="charCount" disabled size="4">
+            </div>
+        </div>
+        <div id="foot">
+            &copy; Marvin assignment webpage
+        </div>
+    </div>
+</body>
+</html>
