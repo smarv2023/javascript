@@ -11,7 +11,21 @@ class TextSearchEdit {
         this.msg = "Original paragraph before modification for comparison";
         this.userMsg = document.getElementById('userMsg');
         this.originDiv = document.getElementById('originDiv');
+        /*
+        // method in the constructor
+        this.replaceWords = function() {
+            if (this.replacedParagraph !== this.paragraph) {
+                document.getElementById('paragraph').value = this.replacedParagraph; // I still do not know why (this.paragraph) is not working.
+                this.originDiv.innerHTML = 'Original:<br>' + this.highlights;
+                this.userMsg.innerHTML = 'Word replaced successfully: ' + '[ <u>' + this.searchWord + '</u> ] replaced by: [ <u>' + this.replaceWord + '</u> ]';
+            } else {
+                this.userMsg.innerText = 'Word not found. No changes were made.';
+            }
+        }
+        */
     }
+    
+    // same version as inside the constructor
     replaceWords() {
         if (this.replacedParagraph !== this.paragraph) {
             document.getElementById('paragraph').value = this.replacedParagraph; // I still do not know why (this.paragraph) is not working.
@@ -21,7 +35,8 @@ class TextSearchEdit {
             this.userMsg.innerText = 'Word not found. No changes were made.';
         }
     }
-
+   
+    // function outside constructor
     search() {
         if (this.searchWord) {
             if (this.replacedParagraph !== this.paragraph) {

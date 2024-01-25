@@ -203,6 +203,7 @@ function displayResults(colorVotes) {
 
     // Sort colors by the number of votes in descending order
     var sortedColors = Object.keys(colorVotes).sort(function(a, b) {
+        // Subtraction sort
         return colorVotes[b] - colorVotes[a];
     });
 
