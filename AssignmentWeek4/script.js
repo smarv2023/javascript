@@ -1,4 +1,5 @@
 const apiKey = '68a78becfd24ee594deb7e84';
+//const apiKey = `481107b2f7be0940d2001cc3`;
 var country = `USD`;// Default
 var api = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${country}`;
 var histories = new Array();
