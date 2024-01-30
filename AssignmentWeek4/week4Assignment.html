@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Currency Converter</h1>
+        <fieldset>
+            <legend>Convert</legend>
+            <form>
+                <div>
+                    <div>
+                        <label for="amount">Amount:</label><br>
+                        <input type="text" name="amount" id="amount" onkeypress="return /[0-9]/i.test(event.key)" class ="basicDesign">
+                    </div>
+
+                    <div id="selectCurrency">
+                        <select name="fromCurrency" id="fromCurrency" onclick="currencyManager();" class="basicDesign">
+                        </select>
+                        Convert To:
+                        <select name="toCurrency" id="toCurrency" class ="basicDesign">   
+                        </select>
+                    </div>
+                    <button type="button" name="submit" onclick="selectCurrency();" class="basicDesign">Convert</button>
+                    <div id="output" class ="basicDesign"></div>
+                </div>
+            </form>
+        </fieldset>
+        <div id="historyList" class="basicDesign">
+            <h4>Transaction History</h4>
+            <div id="history"></div>
+            <button  id="del" onclick="deleteList();" class="basicDesign">Delete last Transaction</button>
+        </div>
+        <div id="foot">
+            &copy; Marvin assignment webApp
+        </div>
+    </div>
+
+</body>
+</html>
