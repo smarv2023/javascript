@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #userInfoContainer {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+    
+    <script>
+        // Jquery
+        $(document).ready(function () {
+            try {
+                var api = 'https://jsonplaceholder.typicode.com/users';
+                $.get(api, function (data) {
+                    console.log(data);
+
+                    var userInfoContainer = $("#userInfoContainer");
+
+                    // Map a new array extracted from data take "name" only and put it in the availableNames.
+                    var availableNames = data.map(post => post.name);
+                    console.log(availableNames);
+
+                    // Initialize Autocomplete widget
+                    $("#searchInput").autocomplete({
+                        source: availableNames,
+                        select: function (event, ui) {
+                            // Handle selection from the autocomplete list
+                            var selectedName = ui.item.value;
+                            displayUserInfo(selectedName);
+                            console.log(event);
+                        }
+                    });
+
+                    // Function to display user information
+                    function displayUserInfo(name) {
+                        var user = data.find(post => post.name === name);
+                        if (user) {
+                            userInfoContainer.html(`<div>${user.name}<br>${user.username}<br>${user.email}<br>${user.address.street}, ${user.address.city}</div>`);
+                        }
+                    }
+                });
+            } catch (err) {
+                console.log(err.message);
+            }
+        });
+    </script>
+</head>
+<body>
+
+<div>
+    <input type="text" id="searchInput" placeholder="Search names">
+    <div id="userInfoContainer"></div>
+</div>
+
+</body>
+</html>

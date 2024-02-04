@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #container {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 15px 15px 15px rgb(105, 117, 155);
+            margin: 5% auto;
+            opacity: 1;
+            animation: glow .9s infinite linear;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Exo 2', sans-serif;
+            color: #a33232;
+            background-color: aqua;
+            margin-top: 0px;
+            border-radius: 15px 15px 0px 0px;
+            padding: 20px 0px;
+        }
+
+        #listOfNames {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #listOfNames li {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        #foot {
+            text-align: center;
+            font-family: 'Exo 2', sans-serif;
+            color: #a33232;
+            background-color: aqua;
+            margin-top: 20px;
+            border-radius: 0px 0px 15px 15px;
+            padding: 20px 0px;
+        }
+
+        #content {
+            padding: 0px 60px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Jquery auto-complete</h1>
+        <div id="content">
+            <label>Search Name: </label>
+            <input type="text" id="searchInput" placeholder="Search names">
+            <ul id="listOfNames"></ul>
+        </div>
+
+        <script src="scriptweek5.js"></script>
+        <div id="foot">
+            &copy; Marvin assignment webApp
+        </div>
+    </div>
+</body>
+</html>

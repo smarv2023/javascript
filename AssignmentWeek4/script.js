@@ -1,5 +1,5 @@
-const apiKey = '68a78becfd24ee594deb7e84';
-//const apiKey = `481107b2f7be0940d2001cc3`;
+//const apiKey = '68a78becfd24ee594deb7e84';
+const apiKey = `481107b2f7be0940d2001cc3`;
 var country = `USD`;// Default
 var api = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${country}`;
 var histories = new Array();
@@ -51,25 +51,38 @@ class CurrencyConverter {
 }
 
 class TrasactionHistory {
-    constructor(sourceCurrency, targetCurrency, amount, result) {
-        this.sourceCurrency = sourceCurrency;
-        this.targetCurrency = targetCurrency;
-        this.amount = amount;
+    constructor(source, target, amount, result) {
+        //this.sourceCurrency = sourceCurrency;
+        //this.targetCurrency = targetCurrency;
+        //this.amount = amount;
         this.result = result;
         this.update = function() {
             var timeStamp = new Date();
             let DateTime = `${timeStamp.getFullYear()}-${timeStamp.getMonth() + 1}-${timeStamp.getDate()} ${timeStamp.getHours()}:${timeStamp.getMinutes()}:${timeStamp.getSeconds()}`;
             if (this.result) {
                 var transactionHistory = document.getElementById("history");
-                var transaction = {sourceCurrency, targetCurrency, amount, result, DateTime};
+                var transaction = {source, target, amount, result, DateTime};
                 histories.push(transaction);
+                console.log(histories);
                 // PrintOut History
                 let text = "<ul>";
                 for (let i = 0; i < histories.length; i++) {
+
+                    // Format the history Array[{object}] to JSON string
                     let outputHistory = JSON.stringify(histories[i]);
                     outputHistory = outputHistory.replace(/[{},'"]+/g , " ");
                     text += "<li>" + outputHistory + " " + "</li>";
+
+                    // Another Version display directly from Array Object
+                    /*
+                    text += "<li>" + "Source: "+ histories[i].source + " Target: "+ histories[i].target +
+                                    "Amount: " + histories[i].amount + " Result: " + histories[i].result + " DateTime: " + 
+                                    histories[i].DateTime + "</li>";
+                    */
+
+                    // Display just the value
                     //text += "<li>" + Object.values(histories[i]) + "</li>";
+
                 }
                 text += "</ul>";
                 transactionHistory.innerHTML = text;
@@ -109,13 +122,11 @@ async function selectCurrency() {
 
         transactions.update();
 
-        
-      
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
-        
+    // Splice or delete the last entry   
     function deleteList() {
         var list = document.getElementsByTagName("li");
         var i = list.length-1;
