@@ -126,7 +126,8 @@ async function selectCurrency() {
         console.error('Error fetching data:', error);
     }
 }
-    // Splice or delete the last entry   
+
+    // Splice or delete the last entry 
     function deleteList() {
         var list = document.getElementsByTagName("li");
         var i = list.length-1;
@@ -136,7 +137,6 @@ async function selectCurrency() {
         } else {
             alert("Nothing to delete.");
         }
-    };
-        
+    };      
 
 window.onload = selectCurrency;
