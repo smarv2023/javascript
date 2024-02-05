@@ -2,9 +2,7 @@
 const apiKey = `481107b2f7be0940d2001cc3`;
 var country = `USD`;// Default
 var api = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${country}`;
-var histories = new Array();
-
-
+var histories = new Array(); // this is the variable for histories of transaction
 
 // This will change the Main currency when you choose from fromCurrency select/option.
 // If you delete this it will default to USD as main currency.
@@ -49,6 +47,7 @@ class CurrencyConverter {
         }
     }
 }
+
 
 class TrasactionHistory {
     constructor(source, target, amount, result) {
