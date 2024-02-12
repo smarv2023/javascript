@@ -48,7 +48,6 @@ class CurrencyConverter {
     }
 }
 
-
 class TrasactionHistory {
     constructor(source, target, amount, result) {
         //this.sourceCurrency = sourceCurrency;
